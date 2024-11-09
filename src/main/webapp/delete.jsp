@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page language="java" %>
 <!DOCTYPE html>
-<html lang="ko">
 <head>
     <title>Delete Confirmation</title>
     <meta charset="UTF-8">

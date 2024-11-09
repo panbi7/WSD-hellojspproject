@@ -1,38 +1,40 @@
+<%@ page import="org.example.hellojspproject.MemberDAO" %>
+<%@ page import="org.example.hellojspproject.Member" %>
 <%@ include file="top.jsp" %>
 
-<h3>회원 목록</h3>
+<h3>Member List</h3>
 <table class="table table-bordered">
     <thead>
     <tr>
         <th>#</th>
-        <th>이름</th>
-        <th>생일</th>
-        <th>이메일</th>
-        <th>입학년도</th>
-        <th>악기</th>
-        <th>메뉴</th>
+        <th>Name</th>
+        <th>Birthdate</th>
+        <th>Email</th>
+        <th>Admission Year</th>
+        <th>Instrument</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <%
-        // Mock 데이터 생성
-        String[][] members = {
-                {"1", "김철수", "1990-01-01", "chulsoo@example.com", "2015", "피아노"},
-                {"2", "이영희", "1992-02-02", "younghee@example.com", "2016", "기타"}
-        };
-        for (String[] member : members) {
+        // MemberDAO 인스턴스를 생성하여 모든 회원 데이터 가져오기
+        MemberDAO memberDAO = new MemberDAO();
+        List<Member> members = memberDAO.getAllMembers();
+
+        // API에서 가져온 회원 데이터 표시
+        for (Member member : members) {
     %>
     <tr>
-        <td><%= member[0] %></td>
-        <td><%= member[1] %></td>
-        <td><%= member[2] %></td>
-        <td><%= member[3] %></td>
-        <td><%= member[4] %></td>
-        <td><%= member[5] %></td>
+        <td><%= member.getId() %></td>
+        <td><%= member.getName() %></td>
+        <td><%= member.getBirthdate() %></td>
+        <td><%= member.getEmail() %></td>
+        <td><%= member.getAdmissionYear() %></td>
+        <td><%= member.getInstrument() %></td>
         <td>
-            <a href="view.jsp?id=<%= member[0] %>" class="btn btn-info btn-sm">보기</a>
-            <a href="edit.jsp?id=<%= member[0] %>" class="btn btn-warning btn-sm">수정</a>
-            <button class="btn btn-danger btn-sm" onclick="deleteMember(<%= member[0] %>)">삭제</button>
+            <a href="view.jsp?id=<%= member.getId() %>" class="btn btn-info btn-sm">View</a>
+            <a href="edit.jsp?id=<%= member.getId() %>" class="btn btn-warning btn-sm">Edit</a>
+            <button class="btn btn-danger btn-sm" onclick="deleteMember(<%= member.getId() %>)">Delete</button>
         </td>
     </tr>
     <% } %>
@@ -41,7 +43,7 @@
 
 <script>
     function deleteMember(id) {
-        if (confirm("삭제하시겠습니까?")) {
+        if (confirm("Are you sure you want to delete this member?")) {
             location.href = "delete_ok.jsp?id=" + id;
         }
     }
