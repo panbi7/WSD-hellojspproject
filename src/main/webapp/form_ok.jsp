@@ -1,27 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: serendi
-  Date: 11/4/24
-  Time: 11:08 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-</head>
-<body>
-<%
-    request.setCharacterEncoding("UTF-8");
-    String fname = request.getParameter("firstname");
-    String lname = request.getParameter("lastname");
-    String cname = request.getParameter("country");
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ include file="top.jsp" %>
 
-    out.println("이름 : " + fname + " " + lname + "<br />");
-    out.println("출신국 : " + cname + "<br />");
-%>
-</body>
-</html>
+<h3>회원 추가 완료</h3>
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">입력된 회원 정보</h5>
+            <p class="card-text"><strong>이름:</strong> <%= request.getParameter("name") %></p>
+            <p class="card-text"><strong>생일:</strong> <%= request.getParameter("birthdate") %></p>
+            <p class="card-text"><strong>이메일:</strong> <%= request.getParameter("email") %></p>
+            <p class="card-text"><strong>입학년도:</strong> <%= request.getParameter("admissionYear") %></p>
+            <p class="card-text"><strong>악기:</strong> <%= request.getParameter("instrument") %></p>
+        </div>
+    </div>
+    <a href="list.jsp" class="btn btn-primary mt-3">목록으로 돌아가기</a>
+</div>
 
+<%@ include file="bottom.jsp" %>
