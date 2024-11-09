@@ -1,124 +1,64 @@
 package org.example.hellojspproject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 public class MemberDAO {
-    private static final String API_URL = "https://66ff382f2b9aac9c997e8f7d.mockapi.io/schoolClubMember";
-    private static final Gson gson = new Gson();
+    private List<Member> members;
+
+    public MemberDAO() {
+        // 정적 Mock 데이터 초기화
+        members = new ArrayList<>();
+        members.add(new Member(1, "Kim Chulsoo", "1990-01-01", "chulsoo@example.com", 2015, "Piano"));
+        members.add(new Member(2, "Lee Younghee", "1992-02-02", "younghee@example.com", 2016, "Guitar"));
+        members.add(new Member(3, "Park Sungho", "1993-03-03", "sungho@example.com", 2017, "Violin"));
+        members.add(new Member(4, "Jang Minsuk", "1994-04-04", "minsuk@example.com", 2018, "Flute"));
+        members.add(new Member(5, "Yoo Jiwon", "1995-05-05", "jiwon@example.com", 2019, "Drum"));
+    }
 
     // 모든 회원 조회
     public List<Member> getAllMembers() {
-        List<Member> members = new ArrayList<>();
-        try {
-            URL url = new URL(API_URL);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            members = gson.fromJson(in, new TypeToken<List<Member>>(){}.getType());
-            in.close();
-            conn.disconnect();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return members;
     }
 
     // ID로 회원 조회
     public Member getMemberById(int id) {
-        Member member = null;
-        try {
-            URL url = new URL(API_URL + "/" + id);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            member = gson.fromJson(in, Member.class);
-            in.close();
-            conn.disconnect();
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (Member member : members) {
+            if (member.getId() == id) {
+                return member;
+            }
         }
-        return member;
+        return null;
     }
 
     // 회원 추가
     public void addMember(String name, String birthdate, String email, int admissionYear, String instrument) {
-        try {
-            URL url = new URL(API_URL);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/json");
-            conn.setDoOutput(true);
-
-            Member member = new Member(0, name, birthdate, email, admissionYear, instrument);
-            String jsonInputString = gson.toJson(member);
-
-            try (OutputStream os = conn.getOutputStream()) {
-                byte[] input = jsonInputString.getBytes("utf-8");
-                os.write(input, 0, input.length);
-            }
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            in.close();
-            conn.disconnect();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        int newId = members.size() + 1;
+        Member member = new Member(newId, name, birthdate, email, admissionYear, instrument);
+        members.add(member);
     }
 
     // 회원 정보 수정
     public boolean updateMember(int id, String name, String birthdate, String email, int admissionYear, String instrument) {
-        try {
-            URL url = new URL(API_URL + "/" + id);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("PUT");
-            conn.setRequestProperty("Content-Type", "application/json");
-            conn.setDoOutput(true);
-
-            Member member = new Member(id, name, birthdate, email, admissionYear, instrument);
-            String jsonInputString = gson.toJson(member);
-
-            try (OutputStream os = conn.getOutputStream()) {
-                byte[] input = jsonInputString.getBytes("utf-8");
-                os.write(input, 0, input.length);
-            }
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            in.close();
-            conn.disconnect();
+        Member member = getMemberById(id);
+        if (member != null) {
+            member.setName(name);
+            member.setBirthdate(birthdate);
+            member.setEmail(email);
+            member.setAdmissionYear(admissionYear);
+            member.setInstrument(instrument);
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
         }
+        return false;
     }
 
     // 회원 삭제
     public boolean deleteMember(int id) {
-        try {
-            URL url = new URL(API_URL + "/" + id);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("DELETE");
-            conn.setRequestProperty("Accept", "application/json");
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            in.close();
-            conn.disconnect();
+        Member member = getMemberById(id);
+        if (member != null) {
+            members.remove(member);
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
         }
+        return false;
     }
 }
