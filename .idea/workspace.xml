@@ -10,24 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9255fb03-81ac-4bfc-96b1-bb8a4b39d0e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/hellojspproject/BoardDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/bottom.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/delete.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/delete_ok.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/edit.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/edit_ok.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/write.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/write_ok.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/hellojspproject/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/hellojspproject/MemberDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/hellojspproject/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/hellojspproject/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/hellojspproject/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/hellojspproject/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/hellojspproject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/hellojspproject/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/cal.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bottom.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bottom.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/delete.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/delete.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/delete_ok.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/delete_ok.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/form_ok.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/form_ok.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/top.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/write.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/write.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/write_ok.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/write_ok.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/war/hellojspproject.war" beforeDir="false" afterPath="$PROJECT_DIR$/war/hellojspproject.war" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +35,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -324,7 +321,8 @@
       <workItem from="1730770531657" duration="2176000" />
       <workItem from="1730943091928" duration="3585000" />
       <workItem from="1731122400615" duration="3342000" />
-      <workItem from="1731138124049" duration="2057000" />
+      <workItem from="1731138124049" duration="3988000" />
+      <workItem from="1731142242958" duration="923000" />
     </task>
     <servers />
   </component>
